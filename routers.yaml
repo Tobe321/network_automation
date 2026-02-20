@@ -1,0 +1,12 @@
+routers:
+  - name: router-01
+    device_type: cisco_ios
+    host: 10.10.20.48
+    username: developer
+    password: C1sco12345
+
+  - name: router-02
+    device_type: cisco_ios
+    host: 10.10.20.49
+    username: developer
+    password: C1sco12345

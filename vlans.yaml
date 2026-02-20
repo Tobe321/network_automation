@@ -1,0 +1,7 @@
+vlans:
+  - id: 10
+    name: SALES
+  - id: 20
+    name: IT
+  - id: 30
+    name: FINANCE

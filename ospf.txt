@@ -1,0 +1,24 @@
+from netmiko import ConnectHandler
+
+CSR = {
+    "device_type": "cisco_ios",
+    "host": "10.10.20.48",
+    "username": "developer",
+    "password": "C1sco12345"
+}
+
+net_connect = ConnectHandler(**CSR)
+
+def ospf_process(process_id, network_address, wildcard_mask, area):
+
+    config_commands = [
+        f"router ospf {process_id}",
+        f"network {network_address} {wildcard_mask} area {area}"
+    ]
+
+    net_connect.send_config_set(config_commands)
+    print(f"OSPF configured: Process {process_id}, Network {network_address} {wildcard_mask}, Area {area}")
+
+ospf_process("1", "192.168.10.1", "0.0.0.255", "0")
+
+net_connect.disconnect()
